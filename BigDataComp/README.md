@@ -91,6 +91,7 @@ In use:
 4. (CNNRNN.sh -- line 132) add 'start_index_list'
 
 **if you modified the code, you can write the details in the fllowing section**
+
 **-----------------v1.2-----------------**
 
 date: 
@@ -104,5 +105,6 @@ code modify description:
 
 
 **Attention:**
+
 Prediction result output path：./data/output/*.csv
 
