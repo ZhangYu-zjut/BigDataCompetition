@@ -25,7 +25,12 @@ For the use of **Big Data Competition data** (From Baidu infection data)
 An example of training **City_A**
 
 ```
-python main.py --normalize 2 --epochs 2000 --data ./data/data/SIGIR5/data/city_A.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_A.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 0 --metric 0 --city_name city_A
+python main.py --normalize 2 --epochs 60 --data ./data/data/SIGIR5/data/city_A.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_A.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_A
+```
+
+If you want to train **city_B**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
+```
+python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR5/data/city_B.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_B.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_B
 ```
 
 ## Option Explanation
