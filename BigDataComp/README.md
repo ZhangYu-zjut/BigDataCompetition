@@ -41,9 +41,13 @@ normalize: normalization options
 ```	
 
 ## Log Format
+
 rse: Root-mean-square error
+
 rae: Absolute error
+
 correlation: Pearson correlation score
+
 More information can be found in `main.py --help`.
 
 
@@ -51,10 +55,14 @@ More information can be found in `main.py --help`.
 -----------------origin version-----------------
 
 
-**-----------------v1-----------------**
+**-----------------v1.0---------------**
+
 date: 2020.5.20
+
 coder: Yu Zhang
+
 code modify description:
+
 In use:
 1. (CNNRNN_Res.py -- line 16) `torch.Tensor` change to `torch.ones`
 2. (utils.py -- line 102) add parameter `offset`, which can change the window start index
@@ -69,9 +77,13 @@ In use:
 
 
 **-----------------v1.1-----------------**
+
 date: 2020.5.24
+
 coder: Yu Zhang
+
 code modify description:
+
 In use:
 1. (file path: ./data/) add the file `predict.py`, which implements the function of predict future data. （used in main.py -- linne 205）
 2. (file path: ./data/) add the file `pre_utils.py`, which implements the function of future data loader.（used in main.py -- linne 206）
@@ -80,8 +92,11 @@ In use:
 
 **if you modified the code, you can write the details in the fllowing section**
 **-----------------v1.2-----------------**
+
 date: 
+
 coder: 
+
 code modify description:
 1.
 2.
