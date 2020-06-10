@@ -33,6 +33,21 @@ If you want to train **city_B**, just modify three parameters: `--data`, `--sim_
 python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR5/data/city_B.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_B.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_B
 ```
 
+If you want to train **city_C**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
+```
+python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR5/data/city_C.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_C.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_C
+```
+
+If you want to train **city_D**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
+```
+python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR5/data/city_D.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_D.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_D
+```
+
+If you want to train **city_E**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
+```
+python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR5/data/city_E.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_E.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_E
+```
+
 ## Option Explanation
 For `main.py`
 
