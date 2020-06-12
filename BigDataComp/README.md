@@ -79,12 +79,6 @@ result_vis: whether display the plot curve of predict result(using matplotlib).
 	1: Display the visualization of result.
 ```
 
-```
-output_print: normalization options
-	0: no normalization
-	1: global/matrix-wise normalization
-	2: signal/column-wise normalization (Original code says **row-wise normalization**, which i think is incorrect !!)
-```
 
 
 ## Option Explanation
@@ -113,7 +107,7 @@ More information can be found in `main.py --help`.
 -----------------origin version-----------------
 
 
-**----------------------------------v1.0--------------------------------**
+**------------------------------------------------------------------v1.0----------------------------------------------------------------**
 
 date: 2020.5.20
 
