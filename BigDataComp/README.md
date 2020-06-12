@@ -19,7 +19,7 @@ Our team modified the original code to adjust to Big Data Competition.
 `Python == 2.7, Pytorch == 1.0.0`
 
 ## Quick start
-1. For the use of **original data** (From US epidemic data)(**Not useful for competition**)
+### 1. For the use of **original data** (From US epidemic data)(**Not useful for competition**)
 
 ```
 python main.py --normalize 1 --epochs 2 --data ./data/us_hhs/data.txt --sim_mat ./data/us_hhs/ind_mat.txt --model CNNRNN_Res \
@@ -27,16 +27,17 @@ python main.py --normalize 1 --epochs 2 --data ./data/us_hhs/data.txt --sim_mat 
 --horizon 1 --window 16 --gpu 0 --metric 0
 ```
 
-2. For the use of **Big Data Competition data** (From Baidu infection data)
+### 2. For the use of **Big Data Competition data** (From Baidu infection data)
 
-- 2.1 Train cities all together(recommend)
+#### 2.1 Train cities all together(recommend)
 
 If you want to train **all cities**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
 ```
 python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR/data.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_all.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_all
 ```
 
-- 2.2 Train cities separately(Not recommend)
+#### 2.2 Train cities separately(Not recommend)
+
 An example of training **City_A**
 
 ```
@@ -93,7 +94,8 @@ For `main.py`
 normalize: normalization options
 	0: no normalization
 	1: global/matrix-wise normalization
-	2: signal/column-wise normalization (Original code says **row-wise normalization**, which i think is incorrect !!)
+	2: signal/column-wise normalization 
+	(Original code says **row-wise normalization**, which i think is incorrect !!)
 ```	
 
 ## Log Format
@@ -111,7 +113,7 @@ More information can be found in `main.py --help`.
 -----------------origin version-----------------
 
 
-**-----------------v1.0---------------**
+**----------------------------------v1.0--------------------------------**
 
 date: 2020.5.20
 
@@ -132,7 +134,7 @@ In use:
 3. (main.py -- line 104) add parameter `log_pre`，means whether do the log10 preproces. default is True，if you don't need, just add `--log_pre False` in the command line.
 
 
-**-----------------v1.1-----------------**
+**----------------------------------v1.1----------------------------------**
 
 date: 2020.5.24
 
@@ -148,7 +150,7 @@ In use:
 
 **if you modified the code, you can write the details in the fllowing section**
 
-**-----------------v1.2-----------------**
+**----------------------------------v1.2----------------------------------**
 
 date: 2020.6.12
 
@@ -165,7 +167,7 @@ code modify description:
 
 **if you modified the code, you can write the details in the fllowing section**
 
-**-----------------v1.3-----------------**
+**----------------------------------v1.3----------------------------------**
 
 date: 2020.X.X
 
