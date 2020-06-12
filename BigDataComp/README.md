@@ -1,4 +1,11 @@
 # Big Data Competition
+First of all, I would like to thank to my teammates(**Xiao xuan Cui, Lin Yao, Jing ying Nong**). Without their help and support, I can't go so far!
+
+For more information and details about data processing, please visit [https://github.com/calidentor/BigDataCompetition_YL](https://github.com/calidentor/BigDataCompetition_YL
+)
+
+
+## Introduction
 This code is built on the basis of another code, which is used for epidemic prediction.(SIGIR 18)
 For original version of code, please visit [https://github.com/CrickWu/DL4Epi](https://github.com/CrickWu/DL4Epi)
 
@@ -12,7 +19,7 @@ Our team modified the original code to adjust to Big Data Competition.
 `Python == 2.7, Pytorch == 1.0.0`
 
 ## Quick start
-For the use of **original data** (From US epidemic data)
+1. For the use of **original data** (From US epidemic data)(**Not useful for competition**)
 
 ```
 python main.py --normalize 1 --epochs 2 --data ./data/us_hhs/data.txt --sim_mat ./data/us_hhs/ind_mat.txt --model CNNRNN_Res \
@@ -20,8 +27,16 @@ python main.py --normalize 1 --epochs 2 --data ./data/us_hhs/data.txt --sim_mat 
 --horizon 1 --window 16 --gpu 0 --metric 0
 ```
 
-For the use of **Big Data Competition data** (From Baidu infection data)
+2. For the use of **Big Data Competition data** (From Baidu infection data)
 
+2.1 Train cities all together(recommend)
+
+If you want to train **all cities**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
+```
+python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR/data.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_all.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_all
+```
+
+2.2 Train cities separately(Not recommend)
 An example of training **City_A**
 
 ```
@@ -48,9 +63,26 @@ If you want to train **city_E**, just modify three parameters: `--data`, `--sim_
 python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR5/data/city_E.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_E.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_E
 ```
 
-If you want to train **all cities**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
+## Parameters Description
+For `main.py`
+
 ```
-python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR/data.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_all.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_all
+output_print: whether print the model output during the train peocess.
+	0: Don't print the output of intermediate process.
+	1: Print the output of intermediate process.
+```
+
+```
+result_vis: whether display the plot curve of predict result(using matplotlib).
+	0: Don't display the visualization of result.
+	1: Display the visualization of result.
+```
+
+```
+output_print: normalization options
+	0: no normalization
+	1: global/matrix-wise normalization
+	2: signal/column-wise normalization (Original code says **row-wise normalization**, which i think is incorrect !!)
 ```
 
 
@@ -118,14 +150,17 @@ In use:
 
 **-----------------v1.2-----------------**
 
-date: 
+date: 2020.6.12
 
-coder: 
+coder: Yu Zhang
 
 code modify description:
-1.
-2.
-3.
+1. (prediction.py) Review some bugs of original code.
+	(1) NaN bug -- if denominator equals to zero, add a samll value(epsilon) to avoid division by zero.
+	(2) index bug -- new_data[i] = old_data[i-1]
+	(3) window size bug -- rollback the window size(p)
+2. (main.py) Add two parameters in `mian.py`:'result_vis' and 'output_print'(has mentioned above).
+3. (main.py) Add some codes to the whole project, including `data format transform` and `Visualization of prediction` (By Lin Yao)
 
 
 **Attention:**
