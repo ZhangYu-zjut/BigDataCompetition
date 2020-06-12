@@ -31,9 +31,14 @@ python main.py --normalize 1 --epochs 2 --data ./data/us_hhs/data.txt --sim_mat 
 
 #### 2.1 Train cities all together(recommend)
 
-If you want to train **all cities**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
+If you want to train all cities data and **voronoi matrix**, just modify three parameters: `--data`, `--sim_mat`, `--city_name`
 ```
 python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR/data.txt --sim_mat ./data/data/SIGIR5/matrix/neigh_matrix_voronoi_all.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_all
+```
+
+If you want to train all cities data and **space matrix(Integrated with tansfer and density feature)**, you can just modify one parameter: `--sim_mat` (compared with the above code)
+```
+python main.py --normalize 2 --epochs 200 --data ./data/data/SIGIR/data.txt --sim_mat ./data/data/SIGIR5/matrix/adj_matrix.txt --model CNNRNN_Res --dropout 0.2 --ratio 0.01 --residual_window 4 --save_dir mysave  --save_name cnnrnn_res.hhs.w-16.h-1.ratio.0.01.hw-4.pt  --horizon 1 --window 6 --gpu 3 --metric 0 --city_name city_all
 ```
 
 #### 2.2 Train cities separately(Not recommend)
